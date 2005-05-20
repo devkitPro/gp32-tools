@@ -1,0 +1,80 @@
+[Project ID]
+Signature=UE Proj: v.1
+[Group]
+0=include
+1=source
+2=
+[Project Information]
+Filter=*.*
+Project Directory=C:\projects\devkitPro\tools\b2fxec\
+Use Relative Directory=1
+Relative to Project File=1
+Project Wordfile=
+Project Tagfile=
+Create Tagfile=0
+Include Sub Directories=0
+[Open Files]
+Open File0=
+Open File Pos0=5563
+Open File Line0=4453
+Open File Window Pos0=0,1,-1,-1,-4,-23,176,176,1049,616
+Open File1=W:\wintermute2002\menu.html
+Open File Pos1=3858
+Open File Line1=0
+Open File Window Pos1=2,3,-1,-1,-4,-23,198,198,1075,642
+Open File2=
+Open File Pos2=0
+Open File Line2=0
+Open File Window Pos2=0,1,-1,-1,-4,-23,176,176,1053,620
+Open File3=C:\projects\devkitPro\tools\b2fxec\include\port.h
+Open File Pos3=0
+Open File Line3=0
+Open File Window Pos3=0,1,-1,-1,-4,-23,198,198,1075,642
+Open File4=C:\projects\devkitPro\tools\b2fxec\include\getopt.h
+Open File Pos4=0
+Open File Line4=5215
+Open File Window Pos4=0,1,-1,-1,-4,-23,0,0,877,444
+Open File5=C:\projects\devkitPro\tools\b2fxec\include\compress_fxe0.h
+Open File Pos5=0
+Open File Line5=2077
+Active File Index=1
+Open File Window Pos5=2,3,-1,-1,-4,-23,22,22,899,466
+Open File6=
+Active File Display Mode=-1
+[File View]
+Current Select=Project Files\include\include\chuff.h
+Scroll Position=0
+[Files - include]
+0=include\b2fxec_io.h
+1=include\bitutils.h
+2=include\cb.h
+3=include\chuff.h
+4=include\compress.h
+5=include\compress_fxe0.h
+6=include\compress_fxe2.h
+7=include\compress_fxe3.h
+8=include\dol_def.h
+9=include\fio.h
+10=include\fxe_def.h
+11=include\getopt.h
+12=include\headers.h
+13=include\logo.h
+14=include\lz2min.h
+15=include\params.h
+16=include\port.h
+17=include\unfxe.h
+[Files]
+0=Makefile
+[Files - source]
+0=source\cb.cpp
+1=source\chuff.cpp
+2=source\compress_fxe0.cpp
+3=source\compress_fxe2.cpp
+4=source\compress_fxe3.cpp
+5=source\fio.cpp
+6=source\getopt.cpp
+7=source\headers.cpp
+8=source\lz2min.cpp
+9=source\main.cpp
+10=source\port.cpp
+11=source\unfxe.cpp
