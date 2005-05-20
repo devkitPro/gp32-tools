@@ -12,7 +12,7 @@
 #include <stdexcept>
 #include <new>
 
-#include "io.h"
+#include "b2fxec_io.h"
 #include "cb.h"
 #include "fxe_def.h"
 #include "lz2min.h"

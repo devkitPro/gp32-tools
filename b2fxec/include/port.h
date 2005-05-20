@@ -19,7 +19,7 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 
-#if defined(WIN32) || defined(WINNT) || defined(__WIN32__) || defined(__WIN32)
+#if defined(WIN32) || defined(WINNT) || defined(__WIN32__) || defined(__WIN32) || defined(__linux__)
 #include "getopt.h"
 #endif
 
