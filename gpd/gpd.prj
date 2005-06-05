@@ -1,0 +1,27 @@
+[Project ID]
+Signature=UE Proj: v.1
+[Group]
+0=include
+1=source
+[Project Information]
+Filter=*.*
+Project Directory=C:\projects\devkitPro\tools\gp32\gpd\
+Use Relative Directory=1
+Relative to Project File=1
+Project Wordfile=
+Project Tagfile=
+Create Tagfile=0
+Include Sub Directories=0
+[Files - include]
+0=C:\projects\devkitPro\tools\gp32\gpd\include\arm-dis.h
+1=C:\projects\devkitPro\tools\gp32\gpd\include\bitutils.h
+2=C:\projects\devkitPro\tools\gp32\gpd\include\disasm.h
+3=C:\projects\devkitPro\tools\gp32\gpd\include\dis-asm.h
+4=C:\projects\devkitPro\tools\gp32\gpd\include\fxe.h
+[Files]
+0=C:\projects\devkitPro\tools\gp32\gpd\Makefile
+[Files - source]
+0=C:\projects\devkitPro\tools\gp32\gpd\source\arm-dis.c
+1=C:\projects\devkitPro\tools\gp32\gpd\source\disasm.c
+2=C:\projects\devkitPro\tools\gp32\gpd\source\fxe.c
+3=C:\projects\devkitPro\tools\gp32\gpd\source\main.c
