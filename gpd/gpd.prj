@@ -25,3 +25,9 @@ Include Sub Directories=0
 1=C:\projects\devkitPro\tools\gp32\gpd\source\disasm.c
 2=C:\projects\devkitPro\tools\gp32\gpd\source\fxe.c
 3=C:\projects\devkitPro\tools\gp32\gpd\source\main.c
+[Open Files]
+Open File0=
+Active File Display Mode=-1
+[File View]
+Current Select=Project Files\source\source\main.c
+Scroll Position=0
