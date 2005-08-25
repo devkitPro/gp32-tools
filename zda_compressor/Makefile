@@ -14,9 +14,9 @@ tools	:=$(patsubst %.c,%$(exeext),$(wildcard *.c))
 all:	$(tools)
 
 clean:
-	@rm $(tools)
+	@rm -f $(tools)
 
-%$(exeext)	:: %.c	
+%$(exeext)	:: %.c
 	$(CC) $< -o $@ $(CFLAGS) -lz
 
 install:
