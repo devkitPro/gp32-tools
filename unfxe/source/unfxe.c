@@ -13,7 +13,9 @@
 //#include <stdint.h>
 #include <ctype.h>
 #include <unistd.h>
-
+#ifdef __MINGW32__
+#include <getopt.h>
+#endif
 #include "bitutils.h"
 
 //
@@ -46,8 +48,8 @@
 //    +-============================-+
 //    | 1024 Bytes 32x32 pixels icon |
 //    +-============================-+
-//    
-//      The icon is a BMP without any headers.   
+//
+//      The icon is a BMP without any headers.
 //      The BMP depth is 8bits.
 //
 //    +---+---+---+---+
@@ -82,7 +84,7 @@
 #define FXE_HEADER_SIZE (4+4+4+4+4+32+32+16+1024)
 #define CH(p) ( isprint(*(p)) ? *(p) : '.' )
 
-// 
+//
 
 static char author[32];
 static char title[32];
@@ -116,10 +118,10 @@ static void fix_key( long klen, unsigned char *key ) {
 	}
 }
 
-static void decrypt_buffer( long klen, const unsigned char *key, 
+static void decrypt_buffer( long klen, const unsigned char *key,
 					 long blen, unsigned char *buf ) {
 	long n = 0;
-	
+
 	while (n < blen) {
 		//unsigned char c = buf[n] ^ 0xff;	// MVN :)
 		unsigned char c = buf[n];
@@ -156,7 +158,6 @@ static int parse_fxe( FILE *fh ) {
 	unsigned char buf[FXE_HEADER_SIZE];
 	unsigned long x;
 	unsigned char *p;
-	int n;
 
 	if (fread(buf,1,FXE_HEADER_SIZE,fh) != FXE_HEADER_SIZE) {
 		// read error or something..
@@ -174,8 +175,8 @@ static int parse_fxe( FILE *fh ) {
 	// read & output some info stuff..
 
 	p = buf+4;
-	GETL_LE(p,x); printf("Total FXE file size is %d bytes\n",x);
-	GETL_LE(p,x); printf("FXE info size is %d bytes\n",x);
+	GETL_LE(p,x); printf("Total FXE file size is %ld bytes\n",x);
+	GETL_LE(p,x); printf("FXE info size is %ld bytes\n",x);
 	memcpy(title,p,32); p += 32;
 	memcpy(author,p,32);  p += 32;
 	memcpy(reserved,p,16);
@@ -194,17 +195,17 @@ static int parse_fxe( FILE *fh ) {
 	p += 16;
 
 	// Icon.. size is 32x32 == 1024 bytes
-	
+
 	memcpy(icon,p,1024); p += 1024;
 
 	// file size
-	
-	GETL_LE(p,x); printf("FXE file data size is %d bytes\n",x);
+
+	GETL_LE(p,x); printf("FXE file data size is %ld bytes\n",x);
 	filelen = x;
-	
+
 	// keysize
 
-	GETL_LE(p,x); printf("FXE encryption key size is %d bytes\n",x);
+	GETL_LE(p,x); printf("FXE encryption key size is %ld bytes\n",x);
 	keylen = x;
 
 	return 0;
@@ -293,7 +294,7 @@ int main( int argc, char **argv ) {
 	printf("UnFxe v0.2 (c) 2002 Jouni 'Mr.Spiv' Korhonen\n\n");
 
 	// Open fxe..
-	
+
 	if ((fh = fopen(argv[optind],"r+b")) == NULL) {
 		fprintf(stderr,"*** Failed to open file '%s'..\n",argv[1]);
 		exit(1);
@@ -301,7 +302,7 @@ int main( int argc, char **argv ) {
 
 
 	// parse the fxe header..
-		
+
 	if (parse_fxe(fh)) { exit(1); }
 
 	// write icon..
@@ -348,7 +349,7 @@ int main( int argc, char **argv ) {
 		exit(1);
 	}
 
-	decrypt_buffer( keylen, key, filelen, fxedata ); 
+	decrypt_buffer( keylen, key, filelen, fxedata );
 
 	if (fh_gxb) {
 		if (fwrite(fxedata,1,filelen,fh_gxb) != filelen) {
@@ -366,7 +367,7 @@ int main( int argc, char **argv ) {
 
 
 	// done..
-	
+
 	printf("Done..\n");
 
 	return 0;
