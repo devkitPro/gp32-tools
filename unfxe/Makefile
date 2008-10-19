@@ -16,7 +16,7 @@ INCLUDES	:=	include
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
-DEBUGFLAGS	:= -s
+DEBUGFLAGS	:=
 
 
 UNAME := $(shell uname -s)
@@ -43,6 +43,11 @@ ifneq (,$(findstring Linux,$(UNAME)))
 	LDFLAGS 	+= -static
 endif
 
+ifneq (,$(findstring Darwin,$(shell uname -s)))
+	CFLAGS	+= -isysroot /Developer/SDKs/MacOSX10.4u.sdk
+	ARCH	:= -arch i386 -arch ppc
+	LDFLAGS += -arch i386 -arch ppc
+endif
 
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
@@ -143,17 +148,14 @@ $(OUTPUT): $(OFILES)
 #---------------------------------------------------------------------------------
 %.o : %.cpp
 	@echo $(notdir $<)
-	@$(CXX) -MMD $(CXXFLAGS) -o $@ -c $<
+	$(CXX) -E -MMD $(CFLAGS) $< > /dev/null
+	$(CXX) $(CFLAGS) $(ARCH) -o $@ -c $<
 
 #---------------------------------------------------------------------------------
 %.o : %.c
 	@echo $(notdir $<)
-	@$(CC) -MMD $(CFLAGS) -o $@ -c $<
-
-#---------------------------------------------------------------------------------
-%.o : %.s
-	@echo $(notdir $<)
-	@$(CC) -MMD $(ASFLAGS) -o $@ -c $<
+	$(CC) -E -MMD $(CFLAGS) $< > /dev/null
+	$(CC) $(CFLAGS) $(ARCH) -o $@ -c $<
 
 -include $(DEPENDS)
 
