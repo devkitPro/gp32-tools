@@ -1,4 +1,4 @@
-CFLAGS	:=	-Wall -O2 -s -I/usr/local/include
+CFLAGS	:=	-Wall -O2
 
 ifneq (,$(findstring MINGW,$(shell uname -s)))
 	exeext		:= .exe
@@ -21,7 +21,7 @@ clean:
 	@rm -f $(tools)
 
 %$(exeext)	:: %.c
-	$(CC) $< -o $@ $(CFLAGS) -L/usr/local/lib -lz
+	$(CC) $< -o $@ $(CFLAGS) -lz
 
 install:
 	cp  $(tools) $(PREFIX)
