@@ -22,8 +22,8 @@ namespace {
   // Sort into descending order..
 
   int litcomp( const void* a, const void* b ) {
-    return reinterpret_cast<const literals*>(b)->count -
-           reinterpret_cast<const literals*>(a)->count;
+    return reinterpret_cast<const literal_tables*>(b)->count -
+           reinterpret_cast<const literal_tables*>(a)->count;
   }
 };
 

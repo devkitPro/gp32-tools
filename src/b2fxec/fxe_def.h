@@ -94,7 +94,7 @@
 
 //
 
-struct literals {
+struct literal_tables {
   unsigned short count;
   unsigned short index;
 };
