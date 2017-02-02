@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.61)
-AC_INIT([gp32tools],[1.0.1],[davem@devkitpro.org])
+AC_INIT([gp32tools],[1.0.2],[https://github.com/devkitPro/gp32-tools/issues])
 AC_CONFIG_SRCDIR([src/gpd/main.c])
 #AM_INIT_AUTOMAKE([1.10])
 
