@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <cstring>
+#include <unistd.h>
+
 #include "port.h"
 
 #include "fio.h"
